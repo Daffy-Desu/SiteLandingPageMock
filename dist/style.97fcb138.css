@@ -1,0 +1,507 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@keyframes listFadeUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+@keyframes rotateCross {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+@keyframes rotateCrossNegative {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-359deg);
+  }
+}
+@keyframes upAndDown {
+  0% {
+    transform: translate3d(0px, 0px, 0px);
+  }
+  50% {
+    transform: translate3d(0px, 50px, 0px);
+  }
+  100% {
+    transform: translate3d(0px, 0px, 0px);
+  }
+}
+.rotateCross1 {
+  animation: "rotateCross" 3s infinite linear;
+}
+
+.rotateCross2 {
+  animation: "rotateCrossNegative" 4s infinite linear;
+}
+
+.rotateCross3 {
+  animation: "rotateCross" 7s infinite linear;
+}
+
+.swayDot1 {
+  animation: "upAndDown" 8s infinite ease-in-out;
+}
+
+.swayDot2 {
+  animation: "upAndDown" 10s infinite ease-in-out;
+}
+
+.swayDot3 {
+  animation: "upAndDown" 6s infinite ease-in-out;
+}
+
+body {
+  font-family: "Red Hat Text", sans-serif;
+  background-color: #dc143c;
+  height: 100vh;
+  transition: background-color 0.5s ease-in;
+  overflow: hidden;
+  cursor: none;
+}
+
+h1 {
+  font-family: "Red Hat Display", sans-serif;
+}
+
+p {
+  font-family: "Red Hat Text", sans-serif;
+}
+
+a {
+  font-family: "Red Hat Display", sans-serif;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 10vh;
+  font-size: 24px;
+  margin-left: 40px;
+  margin-right: 40px;
+  position: fixed;
+  width: -webkit-fill-available;
+}
+
+.nav-l {
+  display: flex;
+  justify-content: space-around;
+  width: 69.5%;
+  background-color: transparent;
+  transition: background-color 0.5s ease-in;
+}
+
+.nav-l li {
+  list-style: none;
+}
+
+.nav-l a {
+  color: whitesmoke;
+  letter-spacing: 1px;
+  font-size: 16px;
+  text-decoration: none;
+  text-shadow: rgba(0, 0, 0, 0.75) -6px 6px 12px;
+}
+
+.logo img {
+  width: 3rem;
+  height: 3rem;
+}
+
+.hamburg {
+  display: none;
+}
+
+.hamburg div {
+  width: 25px;
+  height: 2px;
+  background-color: whitesmoke;
+  margin: 5px;
+}
+
+.nav-active {
+  transform: translateX(0) !important;
+}
+
+.cursor {
+  width: 1rem;
+  height: 1rem;
+  border: 1px solid white;
+  background: linear-gradient(#ff8ba3, #a8a7ff);
+  position: absolute;
+  z-index: 3;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: all 0.3s ease-in-out;
+  transition-property: background, transform;
+}
+
+.cursor-turn {
+  background: linear-gradient(crimson, #353398);
+  transform: translate(-50%, -50%) rotate(45deg) scale(0.5);
+}
+
+.cursor-switch {
+  color: #c9c9c9;
+}
+
+.loading-container {
+  display: flex;
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  overflow: hidden;
+}
+
+.loading-element {
+  background-color: #561877;
+  width: 100%;
+}
+
+.hamSwitch .line1 {
+  transform: rotate(-45deg) translate(-5px, 6px);
+  transition: all 0.5s ease;
+}
+
+.hamSwitch .line2 {
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.hamSwitch .line3 {
+  transform: rotate(45deg) translate(-5px, -6px);
+  transition: all 0.5s ease;
+}
+
+.mainsec {
+  position: relative;
+  height: 80vh;
+  top: 10vh;
+  z-index: -1;
+}
+
+.full-name {
+  font-family: "Red Hat Display", sans-serif;
+  font-weight: 900;
+  font-size: 5vw;
+  color: whitesmoke;
+  text-shadow: rgba(0, 0, 0, 0.25) 6px 6px 12px;
+  pointer-events: none;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, 0%) !important;
+}
+
+.full-name h1:first-child {
+  transform: translate(7%, 100%) rotate(90deg) !important;
+}
+
+.full-name h1:last-child {
+  transform: translate(-7%, 100%) rotate(90deg) !important;
+}
+
+.heelclip {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 65%;
+  transform: translate(-50%, -50%);
+}
+
+.main-buttons {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, 0%);
+  text-align: center;
+  color: whitesmoke;
+  min-width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.button-l {
+  color: whitesmoke;
+  padding: 15px 20px;
+  border: solid 1px whitesmoke;
+  background-color: crimson;
+  text-decoration: none;
+  box-shadow: rgba(0, 0, 0, 0.25) -6px 6px 12px;
+  transition: background-color 0.5s ease-in;
+}
+
+.button-r {
+  color: whitesmoke;
+  padding: 15px 20px;
+  border: solid 1px whitesmoke;
+  background-color: crimson;
+  text-decoration: none;
+  box-shadow: rgba(0, 0, 0, 0.25) -6px 6px 12px;
+  transition: background-color 0.5s ease-in;
+}
+
+.button-l:hover {
+  padding: 2px 3px;
+}
+.button-l:hover .button-hover {
+  background-color: black;
+  padding: 13px 17px;
+}
+
+.button-r:hover {
+  padding: 2px 3px;
+}
+.button-r:hover .button-hover {
+  background-color: black;
+  padding: 13px 17px;
+}
+
+.social-l {
+  display: flex;
+  justify-content: space-between;
+  width: 25%;
+  transition: background-color 0.5s ease-in;
+  color: whitesmoke;
+}
+
+.social-text {
+  font-size: 24px;
+  text-shadow: rgba(0, 0, 0, 0.75) -6px 6px 12px;
+}
+
+.social-box {
+  font-size: 24px;
+  border: solid 1px whitesmoke;
+  background-color: crimson;
+  transition: background-color 0.5s ease-in;
+  padding: 2px 10px;
+  box-shadow: rgba(0, 0, 0, 0.25) -6px 6px 12px;
+}
+
+.social-box:hover {
+  opacity: 1 !important;
+  padding: 2px 3px;
+}
+.social-box:hover .social-hover {
+  background-color: black;
+  padding: 0 7px;
+}
+
+.cc {
+  width: 15px;
+  height: 15px;
+  border-radius: 25px;
+  background-color: whitesmoke;
+  margin: 5px;
+  box-shadow: rgba(0, 0, 0, 0.25) -6px 6px 12px;
+  position: relative;
+  z-index: 2;
+}
+
+#cross {
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+  width: 5%;
+  height: 5%;
+}
+#cross path {
+  fill: rgba(245, 245, 245, 0.75);
+}
+
+#dot {
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+  width: 35%;
+  height: 35%;
+}
+#dot path {
+  fill: rgba(245, 245, 245, 0.75);
+}
+
+.graphic-design {
+  font-family: "Red Hat Display", sans-serif;
+  font-weight: 900;
+  font-size: 5vw;
+  color: whitesmoke;
+  text-shadow: rgba(0, 0, 0, 0.25) 6px 6px 12px;
+  pointer-events: none;
+  position: absolute;
+  left: 25%;
+  top: 0%;
+  transform: translate(-50%, 0%) !important;
+}
+
+.graphic-design h1:first-child {
+  transform: translate(7%, 0%) rotate(-90deg) !important;
+}
+
+.graphic-design h1:last-child {
+  transform: translate(-7%, 0%) rotate(-90deg) !important;
+}
+
+.work-scroll {
+  text-align: center;
+  color: whitesmoke;
+  width: 65vw;
+  margin-left: auto;
+  position: absolute;
+  top: 10%;
+  left: 25%;
+}
+
+.work-item {
+  display: flex;
+  flex-direction: row;
+}
+
+.work-img {
+  width: 320px;
+  height: 180px;
+  margin: 12px;
+  border: solid 1px whitesmoke;
+}
+
+.work-text {
+  color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin: 12px;
+  text-align: left;
+}
+.work-text h4 {
+  font-weight: bold;
+  font-size: 32px;
+}
+.work-text p {
+  font-size: 24px;
+}
+
+@media screen and (max-width: 1024px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .cursor {
+    display: block;
+  }
+
+  nav {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .nav-l {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    height: 100vh;
+    background-color: crimson;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    transform: translateX(100%);
+    transition: all 0.5s ease-in;
+  }
+
+  .logo {
+    position: relative;
+    z-index: 2;
+  }
+
+  .nav-l li {
+    opacity: 1;
+  }
+
+  .nav-l a {
+    color: whitesmoke;
+    letter-spacing: 1px;
+    font-size: 48px;
+    font-weight: bolder;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hamburg {
+    display: block;
+    position: relative;
+    z-index: 2;
+  }
+
+  .full-name {
+    position: relative;
+    left: 0;
+    top: 0;
+    transform: translate(0%, 0%) !important;
+    font-size: 8vw;
+    text-shadow: rgba(0, 0, 0, 0.25) -6px 6px 12px;
+  }
+
+  .full-name h1:first-child {
+    transform: translate(0%, 0%) !important;
+  }
+
+  .full-name h1:last-child {
+    transform: translate(27%, 0%) !important;
+  }
+
+  .heelclip {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    height: 65%;
+    transform: translate(-50%, -50%);
+  }
+
+  .main-buttons {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, 0%);
+    text-align: center;
+    color: whitesmoke;
+    min-height: 25vh;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .social-l {
+    display: flex;
+    justify-content: space-between;
+    width: 72%;
+    color: whitesmoke;
+    position: relative;
+    z-index: 2;
+  }
+}
+
+/*# sourceMappingURL=/style.97fcb138.css.map */
